@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111111">
-
+  <meta name="theme-color" content="#15171c">
   <title>서귀포중학교축구부</title>
 
   <style>
@@ -16,199 +15,511 @@
 
     body {
       font-family: Arial, "Noto Sans KR", sans-serif;
-      background: #f5f5f2;
-      color: #151515;
+      background: #eeeeee;
+      color: #17191f;
       min-height: 100vh;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
     }
 
     .app {
+      width: 100%;
       max-width: 480px;
       min-height: 100vh;
       margin: 0 auto;
-      background: #ffffff;
+      background: #f6f6f4;
+      position: relative;
     }
 
-    /* 로그인 화면 */
+    /* =========================
+       로그인
+    ========================= */
+
     #loginScreen {
       min-height: 100vh;
-      background: #111111;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 34px 25px;
+      background:
+        linear-gradient(145deg, #16191f 0%, #303746 55%, #1a1d24 100%);
+      padding: 55px 24px 40px;
+      color: white;
+    }
+
+    .login-brand {
+      margin-bottom: 60px;
     }
 
     .season {
-      color: #f5c518;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      margin-bottom: 18px;
-    }
-
-    .club-name {
-      color: white;
-      font-size: 31px;
-      line-height: 1.2;
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
-
-    .club-eng {
-      color: #9b9b9b;
+      color: #ffd400;
       font-size: 12px;
-      letter-spacing: 1.2px;
-      margin-bottom: 48px;
-    }
-
-    .login-box {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 26px 20px;
-    }
-
-    .login-title {
-      font-size: 22px;
       font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .login-brand h1 {
+      font-size: 34px;
+      line-height: 1.1;
+      letter-spacing: -2px;
+    }
+
+    .login-brand p {
+      margin-top: 14px;
+      color: #c9ccd3;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+    }
+
+    .login-card {
+      background: white;
+      color: #17191f;
+      border-radius: 28px;
+      padding: 30px 24px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.22);
+    }
+
+    .login-card h2 {
+      font-size: 27px;
       margin-bottom: 5px;
     }
 
-    .login-guide {
-      color: #777;
-      font-size: 13px;
-      margin-bottom: 25px;
+    .login-card .sub {
+      color: #8b8f98;
+      margin-bottom: 26px;
     }
 
-    label {
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field label {
       display: block;
-      font-size: 13px;
       font-weight: 800;
-      margin: 16px 0 7px;
+      margin-bottom: 9px;
+      font-size: 14px;
     }
 
-    input {
+    .field input {
       width: 100%;
-      height: 52px;
-      border: 1px solid #dddddd;
-      border-radius: 12px;
-      padding: 0 15px;
-      font-size: 16px;
+      border: 1px solid #dedfe3;
+      background: #fafafa;
+      border-radius: 15px;
+      padding: 16px;
       outline: none;
+      font-size: 16px;
     }
 
-    input:focus {
-      border: 2px solid #f5c518;
+    .field input:focus {
+      border-color: #ffd400;
+      background: white;
     }
 
     .login-btn {
       width: 100%;
-      height: 54px;
-      border: none;
-      border-radius: 12px;
-      margin-top: 24px;
-      background: #f5c518;
-      color: #111111;
-      font-size: 16px;
+      border: 0;
+      background: #ffd400;
+      color: #17191f;
+      border-radius: 15px;
+      padding: 17px;
       font-weight: 900;
-      cursor: pointer;
-    }
-
-    .login-btn:disabled {
-      opacity: 0.6;
+      font-size: 16px;
+      margin-top: 4px;
     }
 
     #loginMessage {
-      min-height: 20px;
-      margin-top: 14px;
-      color: #d62828;
-      text-align: center;
+      margin-top: 15px;
       font-size: 13px;
-      font-weight: 700;
+      color: #d93a3a;
+      text-align: center;
+      min-height: 18px;
     }
 
     .login-footer {
-      color: #666;
-      font-size: 11px;
       text-align: center;
+      color: #aeb2bc;
+      font-size: 11px;
       margin-top: 25px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
-    /* 로그인 성공 화면 */
-    #homeScreen {
+    /* =========================
+       로그인 후 앱
+    ========================= */
+
+    #mainScreen {
       display: none;
+      padding-bottom: 92px;
       min-height: 100vh;
-      background: #f5f5f2;
-      padding-bottom: 30px;
     }
 
-    .home-header {
-      background: #111111;
+    .top {
+      background: #181b21;
       color: white;
-      padding: 45px 22px 28px;
-      border-radius: 0 0 26px 26px;
+      padding: 28px 22px 25px;
+      border-radius: 0 0 28px 28px;
     }
 
-    .home-season {
-      color: #f5c518;
-      font-size: 12px;
+    .top-brand {
+      color: #ffd400;
+      font-size: 10px;
       font-weight: 900;
       letter-spacing: 1.5px;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
-    .home-title {
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .top h1 {
       font-size: 24px;
-      font-weight: 900;
+      letter-spacing: -1px;
     }
 
-    .welcome-card {
-      margin: 20px;
-      background: white;
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    .top .player-info {
+      margin-top: 7px;
+      color: #bfc3ca;
+      font-size: 13px;
     }
 
-    .success {
-      display: inline-block;
-      background: #fff4b8;
-      color: #725b00;
-      padding: 7px 11px;
-      border-radius: 20px;
+    .profile-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #ffd400;
+      color: #181b21;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+      flex-shrink: 0;
+    }
+
+    .page {
+      display: none;
+      padding: 20px 18px 25px;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .hello {
+      margin-bottom: 21px;
+    }
+
+    .hello small {
+      color: #8a8d94;
+    }
+
+    .hello h2 {
+      font-size: 23px;
+      margin-top: 5px;
+    }
+
+    .section {
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .section-title h3 {
+      font-size: 17px;
+    }
+
+    .section-title span {
       font-size: 12px;
+      color: #96999f;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 4px 16px rgba(0,0,0,.045);
+      margin-bottom: 11px;
+    }
+
+    /* 주간 일정 */
+
+    .week {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+    }
+
+    .day {
+      text-align: center;
+      padding: 9px 2px;
+      border-radius: 12px;
+      font-size: 11px;
+      color: #8b8e94;
+    }
+
+    .day strong {
+      display: block;
+      color: #33363c;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    .day.today {
+      background: #ffd400;
+      color: #181b21;
       font-weight: 900;
-      margin-bottom: 15px;
     }
 
-    .welcome-card h2 {
-      font-size: 22px;
-      margin-bottom: 8px;
+    .day.today strong {
+      color: #181b21;
     }
 
-    .welcome-card p {
-      color: #666;
+    .schedule-item {
+      margin-top: 15px;
+      background: #f5f5f3;
+      padding: 14px;
+      border-radius: 14px;
+      border-left: 4px solid #ffd400;
+    }
+
+    .schedule-item strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .schedule-item span {
+      color: #7f8288;
+      font-size: 12px;
+    }
+
+    /* 숙제 */
+
+    .homework-card {
+      background: #1d2027;
+      color: white;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #ffd400;
+      color: #17191f;
+      font-weight: 900;
+      font-size: 10px;
+      padding: 6px 9px;
+      border-radius: 20px;
+      margin-bottom: 13px;
+    }
+
+    .homework-card h3 {
+      font-size: 20px;
+    }
+
+    .homework-card p {
+      color: #bfc2c8;
+      font-size: 13px;
+      margin-top: 7px;
+    }
+
+    .record-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 17px;
+    }
+
+    .record-box {
+      background: #292d35;
+      border-radius: 12px;
+      padding: 12px 7px;
+      text-align: center;
+    }
+
+    .record-box small {
+      display: block;
+      color: #989da6;
+      font-size: 10px;
+      margin-bottom: 5px;
+    }
+
+    .record-box strong {
+      font-size: 16px;
+    }
+
+    .yellow-btn {
+      width: 100%;
+      border: 0;
+      border-radius: 13px;
+      padding: 14px;
+      background: #ffd400;
+      font-weight: 900;
+      margin-top: 15px;
+    }
+
+    /* 공지 */
+
+    .notice-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .notice-icon {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #fff3a9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .notice-text {
+      flex: 1;
+    }
+
+    .notice-text strong {
       font-size: 14px;
-      line-height: 1.6;
     }
 
-    #userEmail {
-      font-weight: 800;
-      color: #111;
-      word-break: break-all;
+    .notice-text p {
+      font-size: 12px;
+      color: #85888e;
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+
+    .new {
+      color: #e64949;
+      font-size: 9px;
+      font-weight: 900;
+      margin-left: 5px;
+    }
+
+    /* 다른 페이지 */
+
+    .page-heading {
+      margin: 5px 0 20px;
+    }
+
+    .page-heading h2 {
+      font-size: 25px;
+    }
+
+    .page-heading p {
+      color: #8c8f95;
+      margin-top: 5px;
+      font-size: 13px;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 45px 20px;
+      color: #8c8f95;
+    }
+
+    .empty .emoji {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .profile-card {
+      text-align: center;
+      padding: 28px 18px;
+    }
+
+    .big-profile {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: #ffd400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 35px;
+    }
+
+    .profile-card h3 {
+      font-size: 21px;
+    }
+
+    .profile-card p {
+      color: #85888e;
+      margin-top: 6px;
+      font-size: 13px;
+    }
+
+    .menu-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .logout-btn {
-      width: calc(100% - 40px);
-      margin: 5px 20px;
-      height: 48px;
-      background: #111111;
+      width: 100%;
+      background: #252932;
       color: white;
-      border: none;
-      border-radius: 12px;
-      font-size: 14px;
+      border: 0;
+      padding: 15px;
+      border-radius: 14px;
       font-weight: 800;
-      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    /* 하단 메뉴 */
+
+    .bottom-nav {
+      display: flex;
+      position: fixed;
+      width: 100%;
+      max-width: 480px;
+      bottom: 0;
+      background: rgba(255,255,255,.97);
+      border-top: 1px solid #e8e8e8;
+      z-index: 50;
+      padding: 9px 4px 13px;
+    }
+
+    .nav-btn {
+      flex: 1;
+      border: 0;
+      background: transparent;
+      color: #a1a4aa;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 0;
+    }
+
+    .nav-btn .icon {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 3px;
+    }
+
+    .nav-btn.active {
+      color: #17191f;
+    }
+
+    .nav-btn.active .icon {
+      transform: translateY(-1px);
+    }
+
+    @media (min-width: 481px) {
+      .app {
+        box-shadow: 0 0 35px rgba(0,0,0,.12);
+      }
     }
   </style>
 </head>
@@ -217,62 +528,42 @@
 
 <div class="app">
 
-  <!-- 로그인 -->
+  <!-- 로그인 화면 -->
   <section id="loginScreen">
 
-    <div class="season">2027 SEASON</div>
-
-    <div class="club-name">
-      서귀포중학교<br>
-      축구부
+    <div class="login-brand">
+      <div class="season">SEOGWIPO MIDDLE SCHOOL FOOTBALL · 2027</div>
+      <h1>서귀포중학교<br>축구부</h1>
+      <p>PLAYER MANAGEMENT SYSTEM</p>
     </div>
 
-    <div class="club-eng">
-      SEOGWIPO MIDDLE SCHOOL FOOTBALL
-    </div>
+    <div class="login-card">
+      <h2>LOGIN</h2>
+      <div class="sub">선수 · 지도자 전용</div>
 
-    <div class="login-box">
-
-      <div class="login-title">LOGIN</div>
-
-      <div class="login-guide">
-        선수 · 지도자 전용
-      </div>
-
-      <form id="loginForm">
-
-        <label for="email">아이디</label>
-
+      <div class="field">
+        <label>아이디</label>
         <input
-          id="email"
           type="text"
+          id="username"
           placeholder="아이디를 입력하세요"
           autocomplete="username"
-          required
         >
+      </div>
 
-        <label for="password">비밀번호</label>
-
+      <div class="field">
+        <label>비밀번호</label>
         <input
-          id="password"
           type="password"
+          id="password"
           placeholder="비밀번호를 입력하세요"
           autocomplete="current-password"
-          required
         >
+      </div>
 
-        <button
-          id="loginButton"
-          class="login-btn"
-          type="submit"
-        >
-          로그인
-        </button>
-
-      </form>
+      <button class="login-btn" id="loginButton">로그인</button>
 
       <div id="loginMessage"></div>
-
     </div>
 
     <div class="login-footer">
@@ -283,47 +574,273 @@
   </section>
 
 
-  <!-- 로그인 성공 후 -->
-  <section id="homeScreen">
+  <!-- 로그인 후 -->
+  <section id="mainScreen">
 
-    <div class="home-header">
-
-      <div class="home-season">
+    <header class="top">
+      <div class="top-brand">
         SEOGWIPO MIDDLE SCHOOL FOOTBALL · 2027
       </div>
 
-      <div class="home-title">
-        서귀포중학교축구부
+      <div class="top-row">
+        <div>
+          <h1>서귀포중학교축구부</h1>
+          <div class="player-info" id="playerInfo">
+            테스트 선수 · 프로필 등록 전
+          </div>
+        </div>
+
+        <div class="profile-circle">⚽</div>
+      </div>
+    </header>
+
+
+    <!-- 홈 -->
+    <main id="homePage" class="page active">
+
+      <div class="hello">
+        <small>오늘도 준비됐나요?</small>
+        <h2>안녕하세요, 선수님 👋</h2>
       </div>
 
-    </div>
+      <section class="section">
+        <div class="section-title">
+          <h3>이번 주 스케줄</h3>
+          <span>주간 일정</span>
+        </div>
 
-    <div class="welcome-card">
+        <div class="card">
 
-      <div class="success">
-        ✓ 로그인 성공
+          <div class="week">
+            <div class="day">월<strong>12</strong></div>
+            <div class="day today">화<strong>13</strong></div>
+            <div class="day">수<strong>14</strong></div>
+            <div class="day">목<strong>15</strong></div>
+            <div class="day">금<strong>16</strong></div>
+            <div class="day">토<strong>17</strong></div>
+            <div class="day">일<strong>18</strong></div>
+          </div>
+
+          <div class="schedule-item">
+            <strong>⚽ 오늘의 훈련</strong>
+            <span>등록된 상세 일정은 다음 단계에서 연결합니다.</span>
+          </div>
+
+        </div>
+      </section>
+
+
+      <section class="section">
+        <div class="section-title">
+          <h3>오늘의 숙제</h3>
+          <span>개인훈련</span>
+        </div>
+
+        <div class="card homework-card">
+          <div class="tag">TODAY</div>
+
+          <h3>리프팅 · 발등</h3>
+          <p>목표 1,000개에 도전하세요.</p>
+
+          <div class="record-row">
+            <div class="record-box">
+              <small>오늘</small>
+              <strong>-</strong>
+            </div>
+
+            <div class="record-box">
+              <small>개인 최고</small>
+              <strong>-</strong>
+            </div>
+
+            <div class="record-box">
+              <small>목표</small>
+              <strong>1,000</strong>
+            </div>
+          </div>
+
+          <button class="yellow-btn" onclick="showPage('homework')">
+            기록 입력하기
+          </button>
+        </div>
+      </section>
+
+
+      <section class="section">
+        <div class="section-title">
+          <h3>공지사항</h3>
+          <span>최근 공지</span>
+        </div>
+
+        <div class="card notice-row">
+          <div class="notice-icon">📢</div>
+
+          <div class="notice-text">
+            <strong>
+              축구부 공지사항
+              <span class="new">NEW</span>
+            </strong>
+
+            <p>
+              새로운 공지는 이곳에 표시됩니다.
+              확인 기능은 다음 단계에서 연결합니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+
+    <!-- 숙제 -->
+    <main id="homeworkPage" class="page">
+
+      <div class="page-heading">
+        <h2>숙제</h2>
+        <p>오늘의 개인훈련 기록</p>
       </div>
 
-      <h2>환영합니다 ⚽️</h2>
+      <div class="card homework-card">
+        <div class="tag">리프팅</div>
+        <h3>발등</h3>
+        <p>오늘 최고 기록을 입력할 수 있도록 연결할 예정입니다.</p>
 
-      <p>
-        Firebase 로그인 연결이 정상적으로 완료되었습니다.
-      </p>
+        <div class="record-row">
+          <div class="record-box">
+            <small>오늘</small>
+            <strong>-</strong>
+          </div>
+          <div class="record-box">
+            <small>PB</small>
+            <strong>-</strong>
+          </div>
+          <div class="record-box">
+            <small>목표</small>
+            <strong>1,000</strong>
+          </div>
+        </div>
+      </div>
 
-      <p style="margin-top:15px;">
-        현재 로그인 계정<br>
-        <span id="userEmail"></span>
-      </p>
+      <div class="card homework-card">
+        <div class="tag">리프팅</div>
+        <h3>인사이드</h3>
+        <p>개인 기록 및 성장 그래프가 들어갈 자리입니다.</p>
+      </div>
 
-    </div>
+      <div class="card homework-card">
+        <div class="tag">리프팅</div>
+        <h3>아웃사이드</h3>
+        <p>개인 기록 및 성장 그래프가 들어갈 자리입니다.</p>
+      </div>
 
-    <button
-      id="logoutButton"
-      class="logout-btn"
-      type="button"
-    >
-      로그아웃
-    </button>
+    </main>
+
+
+    <!-- 일정 -->
+    <main id="schedulePage" class="page">
+
+      <div class="page-heading">
+        <h2>일정</h2>
+        <p>훈련 · 경기 · 대회 일정</p>
+      </div>
+
+      <div class="card empty">
+        <div class="emoji">📅</div>
+        <strong>월간 달력</strong>
+        <p style="margin-top:8px;">
+          감독·코치가 등록한 일정을<br>
+          여기에서 확인하게 됩니다.
+        </p>
+      </div>
+
+    </main>
+
+
+    <!-- 공지 -->
+    <main id="noticePage" class="page">
+
+      <div class="page-heading">
+        <h2>공지</h2>
+        <p>축구부 공지사항</p>
+      </div>
+
+      <div class="card notice-row">
+        <div class="notice-icon">📢</div>
+
+        <div class="notice-text">
+          <strong>테스트 공지 <span class="new">NEW</span></strong>
+          <p>공지사항 기능이 들어갈 자리입니다.</p>
+        </div>
+      </div>
+
+    </main>
+
+
+    <!-- MY -->
+    <main id="myPage" class="page">
+
+      <div class="page-heading">
+        <h2>MY</h2>
+        <p>나의 프로필과 성장 기록</p>
+      </div>
+
+      <div class="card profile-card">
+        <div class="big-profile">⚽</div>
+        <h3>테스트 선수</h3>
+        <p id="accountText">계정 정보를 불러오는 중...</p>
+      </div>
+
+      <div class="card menu-card">
+        <strong>📈 나의 성장 리포트</strong>
+        <span>›</span>
+      </div>
+
+      <div class="card menu-card">
+        <strong>🏃 체력측정 기록</strong>
+        <span>›</span>
+      </div>
+
+      <div class="card menu-card">
+        <strong>🏆 개인 최고 기록</strong>
+        <span>›</span>
+      </div>
+
+      <button class="logout-btn" id="logoutButton">
+        로그아웃
+      </button>
+
+    </main>
+
+
+    <!-- 하단 메뉴 -->
+    <nav class="bottom-nav">
+
+      <button class="nav-btn active" data-page="home">
+        <span class="icon">⌂</span>
+        홈
+      </button>
+
+      <button class="nav-btn" data-page="homework">
+        <span class="icon">✓</span>
+        숙제
+      </button>
+
+      <button class="nav-btn" data-page="schedule">
+        <span class="icon">▣</span>
+        일정
+      </button>
+
+      <button class="nav-btn" data-page="notice">
+        <span class="icon">●</span>
+        공지
+      </button>
+
+      <button class="nav-btn" data-page="my">
+        <span class="icon">♙</span>
+        MY
+      </button>
+
+    </nav>
 
   </section>
 
@@ -331,8 +848,6 @@
 
 
 <script type="module">
-
-  /* Firebase */
 
   import { initializeApp }
   from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
@@ -347,154 +862,140 @@
 
 
   const firebaseConfig = {
-
     apiKey: "AIzaSyAUlVM_hOvZIO7Ed9xdDq5AR8MeZ8YhtoE",
-
-    authDomain:
-    "seogwipo-ms-soccer-2027.firebaseapp.com",
-
-    projectId:
-    "seogwipo-ms-soccer-2027",
-
-    storageBucket:
-    "seogwipo-ms-soccer-2027.firebasestorage.app",
-
-    messagingSenderId:
-    "410606171127",
-
-    appId:
-    "1:410606171127:web:61ba336b6b01762f7f34f2",
-
-    measurementId:
-    "G-MXY0BT0CVG"
-
+    authDomain: "seogwipo-ms-soccer-2027.firebaseapp.com",
+    projectId: "seogwipo-ms-soccer-2027",
+    storageBucket: "seogwipo-ms-soccer-2027.firebasestorage.app",
+    messagingSenderId: "410606171127",
+    appId: "1:410606171127:web:61ba336b6b01762f7f34f2",
+    measurementId: "G-MXY0BT0CVG"
   };
 
 
   const app = initializeApp(firebaseConfig);
-
   const auth = getAuth(app);
 
 
-  /* 화면 */
+  const loginScreen = document.getElementById("loginScreen");
+  const mainScreen = document.getElementById("mainScreen");
 
-  const loginScreen =
-  document.getElementById("loginScreen");
+  const usernameInput = document.getElementById("username");
+  const passwordInput = document.getElementById("password");
 
-  const homeScreen =
-  document.getElementById("homeScreen");
+  const loginButton = document.getElementById("loginButton");
+  const logoutButton = document.getElementById("logoutButton");
 
-  const loginForm =
-  document.getElementById("loginForm");
-
-  const emailInput =
-  document.getElementById("email");
-
-  const passwordInput =
-  document.getElementById("password");
-
-  const loginMessage =
-  document.getElementById("loginMessage");
-
-  const loginButton =
-  document.getElementById("loginButton");
-
-  const logoutButton =
-  document.getElementById("logoutButton");
-
-  const userEmail =
-  document.getElementById("userEmail");
+  const loginMessage = document.getElementById("loginMessage");
+  const accountText = document.getElementById("accountText");
 
 
-  /* 로그인 */
+  /*
+    선수에게는 이메일 주소를 보여주지 않고
+    아이디만 입력하게 합니다.
 
-  loginForm.addEventListener("submit", async (event) => {
+    예:
+    testplyer
+       ↓
+    testplyer@sgpms.local
 
-    event.preventDefault();
+    나중에는
+    3.이시후 같은 선수 아이디도
+    같은 방식으로 로그인하도록 만들 예정입니다.
+  */
+
+  function makeEmail(username) {
+
+    let id = username.trim();
+
+    if (!id) return "";
+
+    if (id.includes("@")) {
+      return id;
+    }
+
+    return id + "@sgpms.local";
+  }
+
+
+  async function login() {
+
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value;
 
     loginMessage.textContent = "";
+
+    if (!username || !password) {
+      loginMessage.textContent = "아이디와 비밀번호를 입력해주세요.";
+      return;
+    }
 
     loginButton.disabled = true;
     loginButton.textContent = "로그인 중...";
 
-
-    let loginId = emailInput.value.trim();
-    const password = passwordInput.value;
-
-
-    /*
-      나중에는 선수들이
-
-      3.이시후
-      2.김민준
-
-      같은 아이디만 입력하게 만들 예정.
-
-      현재 Firebase 연결 테스트 단계에서는
-      Firebase에 만들어둔 이메일 계정으로 로그인.
-    */
-
-    if (!loginId.includes("@")) {
-
-      loginMessage.textContent =
-      "지금 테스트 단계에서는 Firebase 이메일 계정을 입력해주세요.";
-
-      loginButton.disabled = false;
-      loginButton.textContent = "로그인";
-
-      return;
-    }
-
-
     try {
+
+      const email = makeEmail(username);
 
       await signInWithEmailAndPassword(
         auth,
-        loginId,
+        email,
         password
       );
 
-    }
+      passwordInput.value = "";
 
-    catch (error) {
+    } catch (error) {
 
       console.error(error);
 
       loginMessage.textContent =
-      "아이디 또는 비밀번호를 확인해주세요.";
+        "아이디 또는 비밀번호를 확인해주세요.";
 
-    }
-
-    finally {
+    } finally {
 
       loginButton.disabled = false;
       loginButton.textContent = "로그인";
 
+    }
+  }
+
+
+  loginButton.addEventListener("click", login);
+
+
+  passwordInput.addEventListener("keydown", (event) => {
+
+    if (event.key === "Enter") {
+      login();
     }
 
   });
 
 
-  /* 로그인 상태 확인 */
+  logoutButton.addEventListener("click", async () => {
+
+    await signOut(auth);
+
+  });
+
 
   onAuthStateChanged(auth, (user) => {
 
     if (user) {
 
       loginScreen.style.display = "none";
+      mainScreen.style.display = "block";
 
-      homeScreen.style.display = "block";
+      accountText.textContent = user.email;
 
-      userEmail.textContent = user.email;
+      showPage("home");
 
-    }
+    } else {
 
-    else {
+      mainScreen.style.display = "none";
+      loginScreen.style.display = "block";
 
-      homeScreen.style.display = "none";
-
-      loginScreen.style.display = "flex";
-
+      usernameInput.value = "";
       passwordInput.value = "";
 
     }
@@ -502,13 +1003,56 @@
   });
 
 
-  /* 로그아웃 */
+  window.showPage = function(pageName) {
 
-  logoutButton.addEventListener("click", async () => {
+    const pages = document.querySelectorAll(".page");
 
-    await signOut(auth);
+    pages.forEach(page => {
+      page.classList.remove("active");
+    });
 
-  });
+
+    const target =
+      document.getElementById(pageName + "Page");
+
+    if (target) {
+      target.classList.add("active");
+    }
+
+
+    const buttons =
+      document.querySelectorAll(".nav-btn");
+
+    buttons.forEach(button => {
+
+      if (button.dataset.page === pageName) {
+        button.classList.add("active");
+      } else {
+        button.classList.remove("active");
+      }
+
+    });
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  };
+
+
+  document
+    .querySelectorAll(".nav-btn")
+    .forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        showPage(button.dataset.page);
+
+      });
+
+    });
 
 </script>
 
