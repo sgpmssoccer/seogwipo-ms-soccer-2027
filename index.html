@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+
+  <title>서귀포중학교축구부</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      background: #f5f5f2;
+      color: #151515;
+      min-height: 100vh;
+    }
+
+    .app {
+      max-width: 480px;
+      min-height: 100vh;
+      margin: 0 auto;
+      background: #f7f7f4;
+      position: relative;
+      padding-bottom: 95px;
+    }
+
+    /* 상단 */
+    .header {
+      background: #111;
+      color: white;
+      padding: 30px 22px 26px;
+      border-radius: 0 0 28px 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 26px;
+    }
+
+    .logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #f5c400;
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      border: 3px solid #f5c400;
+    }
+
+    .brand-small {
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: #f5c400;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .brand-title {
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    .season {
+      color: #aaa;
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .player-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hello {
+      font-size: 13px;
+      color: #bbb;
+      margin-bottom: 5px;
+    }
+
+    .player-name {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .player-info {
+      font-size: 13px;
+      color: #ddd;
+      margin-top: 6px;
+    }
+
+    .number {
+      width: 54px;
+      height: 54px;
+      border-radius: 17px;
+      background: #f5c400;
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    /* 본문 */
+    .content {
+      padding: 22px 18px;
+    }
+
+    .section {
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .more {
+      font-size: 12px;
+      color: #777;
+      font-weight: 500;
+    }
+
+    .schedule {
+      display: flex;
+      justify-content: space-between;
+      background: white;
+      padding: 15px 8px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.05);
+    }
+
+    .day {
+      text-align: center;
+      width: 13%;
+      padding: 8px 2px;
+      border-radius: 13px;
+    }
+
+    .day-name {
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 7px;
+    }
+
+    .day-num {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .day.today {
+      background: #f5c400;
+      color: #111;
+    }
+
+    .day.today .day-name {
+      color: #111;
+      font-weight: 700;
+    }
+
+    /* 숙제 */
+    .homework {
+      background: #151515;
+      color: white;
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #f5c400;
+      color: #111;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 5px 9px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .homework h3 {
+      font-size: 20px;
+      margin-bottom: 7px;
+    }
+
+    .homework p {
+      color: #bbb;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .progress-area {
+      margin-top: 17px;
+    }
+
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 7px;
+    }
+
+    .progress {
+      width: 100%;
+      height: 8px;
+      background: #333;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      width: 52%;
+      height: 100%;
+      background: #f5c400;
+    }
+
+    .record-button {
+      width: 100%;
+      margin-top: 17px;
+      border: none;
+      border-radius: 13px;
+      padding: 14px;
+      background: #f5c400;
+      color: #111;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    /* 성장 */
+    .growth-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 11px;
+    }
+
+    .growth-card {
+      background: white;
+      border-radius: 17px;
+      padding: 17px;
+      box-shadow: 0 5px 18px rgba(0,0,0,.04);
+    }
+
+    .growth-label {
+      color: #888;
+      font-size: 11px;
+      margin-bottom: 7px;
+    }
+
+    .growth-value {
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .up {
+      color: #d3a500;
+      font-size: 11px;
+      margin-top: 5px;
+      font-weight: 700;
+    }
+
+    /* 공지 */
+    .notice {
+      background: white;
+      border-radius: 17px;
+      padding: 17px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 5px 18px rgba(0,0,0,.04);
+    }
+
+    .new {
+      background: #f5c400;
+      color: #111;
+      font-size: 10px;
+      font-weight: 900;
+      padding: 5px 7px;
+      border-radius: 7px;
+    }
+
+    .notice-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .notice-date {
+      font-size: 11px;
+      color: #999;
+    }
+
+    /* 하단 메뉴 */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 480px;
+      width: 100%;
+      height: 74px;
+      background: white;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .nav-item {
+      text-align: center;
+      color: #999;
+      font-size: 10px;
+      width: 20%;
+    }
+
+    .nav-icon {
+      font-size: 21px;
+      margin-bottom: 4px;
+    }
+
+    .nav-item.active {
+      color: #111;
+      font-weight: 800;
+    }
+
+    .nav-item.active .nav-icon {
+      color: #d3a500;
+    }
+
+    @media (min-width: 600px) {
+      body {
+        background: #e8e8e5;
+      }
+
+      .app {
+        box-shadow: 0 0 40px rgba(0,0,0,.10);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <header class="header">
+
+    <div class="brand">
+      <div class="logo">🐯</div>
+
+      <div>
+        <div class="brand-small">
+          SEOGWIPO MIDDLE SCHOOL FOOTBALL
+        </div>
+
+        <div class="brand-title">
+          서귀포중학교축구부
+        </div>
+
+        <div class="season">
+          2027 SEASON
+        </div>
+      </div>
+    </div>
+
+    <div class="player-card">
+
+      <div>
+        <div class="hello">
+          오늘도 좋은 훈련 되세요 ⚽
+        </div>
+
+        <div class="player-name">
+          테스트 선수
+        </div>
+
+        <div class="player-info">
+          2학년 · FW · No.10
+        </div>
+      </div>
+
+      <div class="number">
+        10
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="content">
+
+    <section class="section">
+
+      <div class="section-title">
+        이번 주 스케줄
+        <span class="more">전체보기 ›</span>
+      </div>
+
+      <div class="schedule">
+
+        <div class="day">
+          <div class="day-name">월</div>
+          <div class="day-num">12</div>
+        </div>
+
+        <div class="day today">
+          <div class="day-name">화</div>
+          <div class="day-num">13</div>
+        </div>
+
+        <div class="day">
+          <div class="day-name">수</div>
+          <div class="day-num">14</div>
+        </div>
+
+        <div class="day">
+          <div class="day-name">목</div>
+          <div class="day-num">15</div>
+        </div>
+
+        <div class="day">
+          <div class="day-name">금</div>
+          <div class="day-num">16</div>
+        </div>
+
+        <div class="day">
+          <div class="day-name">토</div>
+          <div class="day-num">17</div>
+        </div>
+
+        <div class="day">
+          <div class="day-name">일</div>
+          <div class="day-num">18</div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="section-title">
+        오늘의 숙제
+        <span class="more">숙제보기 ›</span>
+      </div>
+
+      <div class="homework">
+
+        <div class="badge">
+          TODAY
+        </div>
+
+        <h3>
+          리프팅 1,000개
+        </h3>
+
+        <p>
+          발등 · 인사이드 · 아웃사이드<br>
+          오늘의 기록을 입력해 주세요.
+        </p>
+
+        <div class="progress-area">
+
+          <div class="progress-text">
+            <span>개인 최고 520개</span>
+            <span>목표까지 480개</span>
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar"></div>
+          </div>
+
+        </div>
+
+        <button class="record-button">
+          기록 입력하기
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="section-title">
+        나의 성장
+        <span class="more">성장기록 ›</span>
+      </div>
+
+      <div class="growth-grid">
+
+        <div class="growth-card">
+          <div class="growth-label">
+            발등 리프팅 최고
+          </div>
+
+          <div class="growth-value">
+            520개
+          </div>
+
+          <div class="up">
+            ↑ 개인 최고기록
+          </div>
+        </div>
+
+
+        <div class="growth-card">
+          <div class="growth-label">
+            50m 달리기
+          </div>
+
+          <div class="growth-value">
+            7.8초
+          </div>
+
+          <div class="up">
+            ↑ 0.4초 향상
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="section-title">
+        최근 공지
+        <span class="more">공지보기 ›</span>
+      </div>
+
+      <div class="notice">
+
+        <div class="new">
+          NEW
+        </div>
+
+        <div>
+          <div class="notice-title">
+            이번 주 훈련 일정 안내
+          </div>
+
+          <div class="notice-date">
+            감독님 · 오늘
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <nav class="bottom-nav">
+
+    <div class="nav-item active">
+      <div class="nav-icon">⌂</div>
+      홈
+    </div>
+
+    <div class="nav-item">
+      <div class="nav-icon">✓</div>
+      숙제
+    </div>
+
+    <div class="nav-item">
+      <div class="nav-icon">▣</div>
+      일정
+    </div>
+
+    <div class="nav-item">
+      <div class="nav-icon">●</div>
+      공지
+    </div>
+
+    <div class="nav-item">
+      <div class="nav-icon">♟</div>
+      MY
+    </div>
+
+  </nav>
+
+</div>
+
+</body>
+</html>119-40+70+
